@@ -1,9 +1,82 @@
 # DSP_002_Value_Customers_Clustering
 
-Readme
-Título
+
 Subtitulo
 Capa (imagem)
+
+A empresa All In One Place é uma empresa e-commerce multimarcas. Em pouco mais de 1 anos de operação, o time de marketing percebeu que alguns clientes da sua base, compram produtos mais caros, com alta frequência e acabam contribuindo com uma parcela significativa do faturamento da empresa. Baseado nessa percepção, o time de marketing vai lançar um programa de fidelidade para os melhores clientes da base, chamado Insiders, mas o time não tem um conhecimento avançado em análise de dados para eleger os participantes do programa.
+Por esse motivo, o time de marketing requisitou ao time de dados uma seleção de clientes elegíveis ao programa, usando técnicas avançadas de manipulação de dados.
+
+O Desafio
+Você faz parte do time de cientistas de dados da empresa All In One Place, que precisa determinar quem são os clientes elegíveis para participar do Insiders. Em posse dessa lista, o time de Marketing fará uma sequência de ações personalizadas e exclusivas ao grupo, de modo a aumentar o faturamento e a frequência de compra.
+
+Como resultado para esse projeto, é esperado que você entregue uma lista de pessoas elegíveis a participar do programa Insiders, junto com um relatório respondendo às seguintes perguntas:
+
+Quem são as pessoas elegíveis para participar do programa de Insiders ?
+Quantos clientes farão parte do grupo?
+Quais as principais características desses clientes ?
+Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
+Qual a expectativa de faturamento desse grupo para os próximos meses ?
+Quais as condições para uma pessoa ser elegível ao Insiders ?
+Quais as condições para uma pessoa ser removida do Insiders ?
+Qual a garantia que o programa Insiders é melhor que o restante da base ?
+Quais ações o time de marketing pode realizar para aumentar o faturamento?
+Os Dados
+O conjunto de dados está disponível na plataforma do Kaggle, através desse link: https://www.kaggle.com/vik2012kvs/high-value-customers-identification 
+
+Cada linha representa uma transação de venda, que ocorreu entre o período de Novembro de 2016 e Dezembro de 2017.
+
+O conjunto de dados inclui as seguintes informações:
+
+Invoice Number: identificador único de cada transação.
+Stock Code Product: código do item.
+Description Product: nome do item
+Quantity: A quantidade de cada item comprado por transação.
+Invoice Date: O dia em que a transação ocorreu
+Unit Price: Preço do produto por unidade
+Customer ID: identificador único do cliente
+Country: O nome do país que o cliente reside
+Como Solucionar esse Desafio?
+Não se assuste com o problema, respire fundo, mantenha a mente clara e limpa e então, comece a pensar de forma estruturada em alternativas para responder a essas perguntas.
+
+
+Roteiro Sugerido para a Solução:
+Esse é o roteiro de resolução do desafio que eu sugiro:
+
+Explore os Dados usando ferramentas e testes Estatísticos com o objetivo de encontrar inconsistências dos dados e tratar possíveis dados faltantes.
+Levante Hipóteses sobre as características de um cliente Insider. Valide ou refute essas hipóteses através dos dados.
+Prepare os Dados para que os Algoritmos Estatísticos ou de Machine Learning sejam capazes de aprender a tarefa.
+Escreva vários algoritmos de Agrupamento ou clusterização.
+Contabilize a Performance do Modelo de Machine Learning e transforme em Performance de Negócio.
+Desenvolva uma API que retorne um “Score de Cluster” para cada cliente, indicando à qual cluster ele pertence.
+Crie um README sobre como interpretar e usar a sua solução.
+ Escreva um Relatório, respondendo às perguntas de negócio.
+O Ferramental da Solução
+Use as ferramentas que você se sente mais confortável para desenvolver a solução. Você pode usar tanto Python quanto R e qualquer IDE de sua preferência Juypter Notebook, Spyder, VS Code, entre outros.
+
+
+1. A indicação das pessoas que farão parte do programa de Insiders
+    - Formato de lista: client id is / is insider
+2. Relatório
+    - Relatório com as perguntas de negócio:
+    -Quem são as pessoas elegíveis para participar do programa de Insiders ?
+    - Who are the clients elegible to join the Insiders program?
+    -Quantos clientes farão parte do grupo?
+    - How much customers will be part of the group?
+    -Quais as principais características desses clientes ?
+    - What are the mainly features of this customers?
+    -Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
+    - Which percentage of revenue comes from the Insiders?
+    -Qual a expectativa de faturamento desse grupo para os próximos meses ?
+    - How the reveneu is expected from the Insiders within the next couple of months?
+    -Quais as condições para uma pessoa ser elegível ao Insiders ?
+    -Quais as condições para uma pessoa ser removida do Insiders ?
+    -Qual a garantia que o programa Insiders é melhor que o restante da base ?
+    -Quais ações o time de marketing pode realizar para aumentar o faturamento?
+
+
+
+
 1)Business problem
 	Definição do problema de negócio
 	O que é o projeto? Quais problemas vc resolveu?
@@ -70,3 +143,63 @@ A saída tem que meio que ser contemplando aquele modelo RFM
 A idéia é dar notas nos requisitos mais importantes e depois tirar as médias dessas notas para rankear os clientes
 
 A conclusão 'final' foi que da forma como as features foram feitas existem basicamente 3 clusters, mas isso é muito pouco. Precisamos de mais para deixar parecido com o rfm. Agora vem a fase de clusterizar os espaços dos embeddings
+1)Quem são as pessoas elegíveis para participar do programa de Insiders ?
+
+    - O que é ser elegível? O que são os clientes de maior 'valor'? (resposta pelo time de negócio)
+    - Faturamento:
+        - Alto ticket médio
+        - Alto LTV (Life Time Value)
+        - Baixa Recência (tempo entre as compras)
+        - Alto basket size
+        - Baixa probabilidade de Churn (não renovação)
+        - Alta Previsão de LTV
+        - Alta propensão de compra
+    - Custo
+        - Baixa taxa de devolução
+    - Experiência de compra
+        - Média alta de avaliação
+        
+2)Quantos clientes farão parte do grupo?
+
+    - Número total de clientes em relação ao grupo total
+    
+3)Quais as principais características desses clientes ?
+
+    - Escrever características do cliente:
+        -Idade
+        -Localização
+    - Escrever características dos hábitos de consumo
+         - Atributos de clusterização
+    
+4)Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
+
+    - Comparar o faturamento dos Insiders em relação ao faturamento total
+    - Faturamento do grupo (leva em conta o time que toma conta do grupo)
+    
+5)Qual a expectativa de faturamento desse grupo para os próximos meses ?
+
+    - LTV do grupo de Insiders
+    - Análise de Cohort
+    
+6)Quais as condições para uma pessoa ser elegível ao Insiders ?
+
+    - Definir a periodicidade (quando o modelo vai ser rodado?)
+    - A pessoa precisa ser desimilar ou não-parecido com uma pessoa do grupo
+
+7)Quais as condições para uma pessoa ser removida do Insiders ?
+
+    - Definir a periodicidade (quando o modelo vai ser rodado?)
+    - A pessoa precisa ser similar ou parecido com uma pessoa do grupo
+    
+8)Qual a garantia que o programa Insiders é melhor que o restante da base ?
+
+    - Teste A/B
+    - Teste A/B Bayesiano
+    - Teste de hipóteses
+
+9)Quais ações o time de marketing pode realizar para aumentar o faturamento?
+
+    - Desconto
+    - preferência de compra
+    - frete
+    - visita a empresa
