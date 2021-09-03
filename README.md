@@ -1,7 +1,7 @@
 # DSP_002_Value_Customers_Clustering
+> Status: Análise Exploratória dos dados ⚠️
+## O objetivo deste projeto é explorar uma base de dados de um e-commerce e encontrar grupos de consumidores para um programa de fidelidade utilizando ferramentas de machine learning. Em resumo, é um problema de clusterização.
 
-
-Subtitulo
 Capa (imagem)
 
 A empresa All In One Place é uma empresa e-commerce multimarcas. Em pouco mais de 1 anos de operação, o time de marketing percebeu que alguns clientes da sua base, compram produtos mais caros, com alta frequência e acabam contribuindo com uma parcela significativa do faturamento da empresa. Baseado nessa percepção, o time de marketing vai lançar um programa de fidelidade para os melhores clientes da base, chamado Insiders, mas o time não tem um conhecimento avançado em análise de dados para eleger os participantes do programa.
@@ -37,23 +37,8 @@ Unit Price: Preço do produto por unidade
 Customer ID: identificador único do cliente
 Country: O nome do país que o cliente reside
 Como Solucionar esse Desafio?
-Não se assuste com o problema, respire fundo, mantenha a mente clara e limpa e então, comece a pensar de forma estruturada em alternativas para responder a essas perguntas.
 
-
-Roteiro Sugerido para a Solução:
-Esse é o roteiro de resolução do desafio que eu sugiro:
-
-Explore os Dados usando ferramentas e testes Estatísticos com o objetivo de encontrar inconsistências dos dados e tratar possíveis dados faltantes.
-Levante Hipóteses sobre as características de um cliente Insider. Valide ou refute essas hipóteses através dos dados.
-Prepare os Dados para que os Algoritmos Estatísticos ou de Machine Learning sejam capazes de aprender a tarefa.
-Escreva vários algoritmos de Agrupamento ou clusterização.
-Contabilize a Performance do Modelo de Machine Learning e transforme em Performance de Negócio.
-Desenvolva uma API que retorne um “Score de Cluster” para cada cliente, indicando à qual cluster ele pertence.
-Crie um README sobre como interpretar e usar a sua solução.
- Escreva um Relatório, respondendo às perguntas de negócio.
-O Ferramental da Solução
-Use as ferramentas que você se sente mais confortável para desenvolver a solução. Você pode usar tanto Python quanto R e qualquer IDE de sua preferência Juypter Notebook, Spyder, VS Code, entre outros.
-
+Resultados esperados
 
 1. A indicação das pessoas que farão parte do programa de Insiders
     - Formato de lista: client id is / is insider
@@ -74,8 +59,7 @@ Use as ferramentas que você se sente mais confortável para desenvolver a solu�
     -Qual a garantia que o programa Insiders é melhor que o restante da base ?
     -Quais ações o time de marketing pode realizar para aumentar o faturamento?
 
-
-
+Passos
 
 1)Business problem
 	Definição do problema de negócio
@@ -117,6 +101,7 @@ Deploy Model to Production
 9) Lessons learned
 	O que foi bom? O que foi ruim? O que dava pra melhorar?
 10) Next steps
+
 11) References
 
 Ideas for my project
@@ -203,3 +188,18 @@ A conclusão 'final' foi que da forma como as features foram feitas existem basi
     - preferência de compra
     - frete
     - visita a empresa
+
+
+
+Entendimento do problema
+Analise Descritiva dos dados
+descriçaõ
+substituição
+estatistica descritiva
+Feature Engineering
+Mindimap de Hipoteses
+Feature Engineering
+Filtragem de variáveis
+Exploratory data analysis
+Preparação dos dados
+Seleção de features
