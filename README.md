@@ -56,8 +56,16 @@ Data Filtering
 Exploratory Data Analisys
 Data Preparation
 Feature Selection
+# Hyperparameter Fine Tunning
+Nosso principal Hiperparâmetro é o número de clusters. Foi aplicado o K-Means em um range de 2 a 10 clusters e foram utilizadas duas métricas para chegar ao melhor valor, o WSS e o Silhouette Score
+
+## WSS (Within-Cluster Sum of Square)
+As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. A WSS mede apenas a compactação, ou seja, mede apenas a distância entre os pontos dentro de um cluster. Por isso não pode ser utilizado sozinho. Já a Silhoueta mede a separação dos clusters
+Calcula as distâncias entre todos os pontos dentro de um mesmo cluster e tira a média (lembrando que o KMeans já separou os clusters). Isso mede a compactação, depois mede a distância média entre os pontos de um cluster e ou outros clusters
+
+
 Machine Learning Modeling
-Hyperparameter Fine Tunning
+
 Convert Model Performace to Business Values
 Deploy Model to Production
 
