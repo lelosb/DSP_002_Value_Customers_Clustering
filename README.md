@@ -63,7 +63,7 @@ Nosso principal Hiperparâmetro é o número de clusters. Foi aplicado o K-Means
 As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. A WSS mede apenas a compactação, ou seja, mede apenas a distância entre os pontos dentro de um cluster. Por isso não pode ser utilizado sozinho. Já a Silhoueta mede a separação dos clusters
 Calcula as distâncias entre todos os pontos dentro de um mesmo cluster e tira a média (lembrando que o KMeans já separou os clusters). Isso mede a compactação, depois mede a distância média entre os pontos de um cluster e ou outros clusters
 
-
+Cada ponto vai ter um score de silhoueta, que varia de -1 a 1 e diz o quanto o ponto pertence ao seu cluster ou o quanto deveria fazer parte de outro. Quanto mais perto do 1, melhor. Cada cor no gráfico mostra a distribuição da silhoueta de todos os pontos de um cluster
 Machine Learning Modeling
 
 Convert Model Performace to Business Values
