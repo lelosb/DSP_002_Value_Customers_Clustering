@@ -2,13 +2,17 @@
 > Status: Análise Exploratória dos dados ⚠️
 ## O objetivo deste projeto é explorar uma base de dados de um e-commerce e encontrar grupos de consumidores para um programa de fidelidade utilizando ferramentas de machine learning. Em resumo, é um problema de clusterização.
 
-Capa (imagem)
+[1]!
 
-A empresa All In One Place é uma empresa e-commerce multimarcas. Em pouco mais de 1 anos de operação, o time de marketing percebeu que alguns clientes da sua base, compram produtos mais caros, com alta frequência e acabam contribuindo com uma parcela significativa do faturamento da empresa. Baseado nessa percepção, o time de marketing vai lançar um programa de fidelidade para os melhores clientes da base, chamado Insiders, mas o time não tem um conhecimento avançado em análise de dados para eleger os participantes do programa.
+# Introdução
+
+## O problema de Negócio
+
+A empresa All In One Place é uma empresa e-commerce multimarcas. Em pouco mais de 1 ano de operação, o time de marketing percebeu que alguns clientes da sua base, compram produtos mais caros, com alta frequência e acabam contribuindo com uma parcela significativa do faturamento da empresa. Baseado nessa percepção, o time de marketing vai lançar um programa de fidelidade para os melhores clientes da base, chamado Insiders, mas o time não tem um conhecimento avançado em análise de dados para eleger os participantes do programa.
 Por esse motivo, o time de marketing requisitou ao time de dados uma seleção de clientes elegíveis ao programa, usando técnicas avançadas de manipulação de dados.
+Como parte do time de cientistas de dados da empresa, devemos utilizar nosso conhecimento e ferramentas de análise de dados para dizer ao time de negócios quem são os clientes elegíveis para participar do Insiders. Em posse dessa lista, o time de Marketing fará uma sequência de ações personalizadas e exclusivas ao grupo, de modo a aumentar o faturamento e a frequência de compra.
 
-O Desafio
-Você faz parte do time de cientistas de dados da empresa All In One Place, que precisa determinar quem são os clientes elegíveis para participar do Insiders. Em posse dessa lista, o time de Marketing fará uma sequência de ações personalizadas e exclusivas ao grupo, de modo a aumentar o faturamento e a frequência de compra.
+# Resultados esperados
 
 Como resultado para esse projeto, é esperado que você entregue uma lista de pessoas elegíveis a participar do programa Insiders, junto com um relatório respondendo às seguintes perguntas:
 
@@ -21,69 +25,50 @@ Quais as condições para uma pessoa ser elegível ao Insiders ?
 Quais as condições para uma pessoa ser removida do Insiders ?
 Qual a garantia que o programa Insiders é melhor que o restante da base ?
 Quais ações o time de marketing pode realizar para aumentar o faturamento?
-Os Dados
-O conjunto de dados está disponível na plataforma do Kaggle, através desse link: https://www.kaggle.com/vik2012kvs/high-value-customers-identification 
 
-Cada linha representa uma transação de venda, que ocorreu entre o período de Novembro de 2016 e Dezembro de 2017.
+# Solução
 
-O conjunto de dados inclui as seguintes informações:
+## Data Load
 
-Invoice Number: identificador único de cada transação.
-Stock Code Product: código do item.
-Description Product: nome do item
-Quantity: A quantidade de cada item comprado por transação.
-Invoice Date: O dia em que a transação ocorreu
-Unit Price: Preço do produto por unidade
-Customer ID: identificador único do cliente
-Country: O nome do país que o cliente reside
-Como Solucionar esse Desafio?
+O conjunto de dados está disponível na plataforma do Kaggle². Cada linha do dataset representa uma transação de venda, que ocorreu entre o período de Novembro de 2016 e Dezembro de 2017. No arquivo, os dados estão disponíveis como segue:
 
-Resultados esperados
+|Feature | Descrição |
+|Invoice Number| identificador único de cada transação.
+|Stock Code Product| código do item.
+|Description Product| nome do item
+|Quantity| A quantidade de cada item comprado por transação.
+|Invoice Date| O dia em que a transação ocorreu
+|Unit Price| Preço do produto por unidade
+|Customer ID| identificador único do cliente
+|Country| O nome do país que o cliente reside
 
-1. A indicação das pessoas que farão parte do programa de Insiders
-    - Formato de lista: client id is / is insider
-2. Relatório
-    - Relatório com as perguntas de negócio:
-    -Quem são as pessoas elegíveis para participar do programa de Insiders ?
-    - Who are the clients elegible to join the Insiders program?
-    -Quantos clientes farão parte do grupo?
-    - How much customers will be part of the group?
-    -Quais as principais características desses clientes ?
-    - What are the mainly features of this customers?
-    -Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
-    - Which percentage of revenue comes from the Insiders?
-    -Qual a expectativa de faturamento desse grupo para os próximos meses ?
-    - How the reveneu is expected from the Insiders within the next couple of months?
-    -Quais as condições para uma pessoa ser elegível ao Insiders ?
-    -Quais as condições para uma pessoa ser removida do Insiders ?
-    -Qual a garantia que o programa Insiders é melhor que o restante da base ?
-    -Quais ações o time de marketing pode realizar para aumentar o faturamento?
 
-Passos
+## Business assumptions
 
-1)Business problem
-	Definição do problema de negócio
-	O que é o projeto? Quais problemas vc resolveu?
-
-2) Business assumption
 	O que está sendo assumido sobre o negócio?
 	Quais os resultados da sua pesquisa sobre o modelo de negócio?
 	Não precisa colocar todas, mas as principais
 	Aqui se coloca as definições de negócio (tempo de churn, por exemplo)
-3)Solution strategy
-	Raciocínio
-	Quais os passos?
+	
 Data Description
 Feature Engineering
 Data Filtering
 Exploratory Data Analisys
 Data Preparation
 Feature Selection
+# Hyperparameter Fine Tunning
+Nosso principal Hiperparâmetro é o número de clusters. Foi aplicado o K-Means em um range de 2 a 10 clusters e foram utilizadas duas métricas para chegar ao melhor valor, o WSS e o Silhouette Score
+
+## WSS (Within-Cluster Sum of Square)
+As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. A WSS mede apenas a compactação, ou seja, mede apenas a distância entre os pontos dentro de um cluster. Por isso não pode ser utilizado sozinho. Já a Silhoueta mede a separação dos clusters
+Calcula as distâncias entre todos os pontos dentro de um mesmo cluster e tira a média (lembrando que o KMeans já separou os clusters). Isso mede a compactação, depois mede a distância média entre os pontos de um cluster e ou outros clusters
+
+Cada ponto vai ter um score de silhoueta, que varia de -1 a 1 e diz o quanto o ponto pertence ao seu cluster ou o quanto deveria fazer parte de outro. Quanto mais perto do 1, melhor. Cada cor no gráfico mostra a distribuição da silhoueta de todos os pontos de um cluster
 Machine Learning Modeling
-Hyperparameter Fine Tunning
+
 Convert Model Performace to Business Values
 Deploy Model to Production
-	Qual a estratégia utilizada?
+
 4)Top 3 data insights
 	Mostra os resultados para o negócio
 5) Machine Learning Model Applied
@@ -109,7 +94,6 @@ Ideas for my project
 quantidade de compras - devolução ou uma relação entre isso pode ser uma feature
  - A simple ranking with the most valuable customers
  - Watch the outliers since the begining
- - Diagrama de fluxo planejado / executado
  - Entender a silhoueta pra explicar
  - Possa pensar na variedade de produtos por compra, para oferecer cross sell
  - Uma coluna de della comparando os clusters com o insiders
@@ -191,15 +175,7 @@ A conclusão 'final' foi que da forma como as features foram feitas existem basi
 
 
 
-Entendimento do problema
-Analise Descritiva dos dados
-descriçaõ
-substituição
-estatistica descritiva
-Feature Engineering
-Mindimap de Hipoteses
-Feature Engineering
-Filtragem de variáveis
-Exploratory data analysis
-Preparação dos dados
-Seleção de features
+
+# Referências
+[1] Adaptado de : https://www.dreamstime.com/big-data-visualization-concept-infographics-design-cluster-analysis-data-clustering-big-data-visualization-concept-infographics-image189630891
+[2] https://www.kaggle.com/vik2012kvs/high-value-customers-identification 
