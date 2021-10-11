@@ -1,5 +1,5 @@
 # DSP_002_Value_Customers_Clustering
-> Status: Análise Exploratória dos dados ⚠️
+> Status: Testes de Clusterização e Estudo de Modelos de ML ⚠️
 ## O objetivo deste projeto é explorar uma base de dados de um e-commerce e encontrar grupos de consumidores para um programa de fidelidade utilizando ferramentas de machine learning. Em resumo, é um problema de clusterização.
 
 ![1](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/design-cluster-analysis.jpg)
