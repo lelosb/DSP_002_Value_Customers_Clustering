@@ -44,63 +44,30 @@ O conjunto de dados está disponível na plataforma do Kaggle². Cada linha do d
 
 ## Business assumptions
 
-O que está sendo assumido sobre o negócio?
+### O que está sendo assumido sobre o negócio?
 
-1)Quem são as pessoas elegíveis para participar do programa de Insiders ?
+Para este projeto, devemos estabelecer algumas condições:
 
-    - O que é ser elegível? O que são os clientes de maior 'valor'? (resposta pelo time de negócio)
-    - Faturamento:
-        - Alto ticket médio
-        - Alto LTV (Life Time Value)
+1) Quem são as pessoas elegíveis para participar do programa de Insiders ?
+
+- Faturamento:
+	- Alto ticket médio
+	- Alto LTV (Life Time Value)
         - Baixa Recência (tempo entre as compras)
         - Alto basket size
         - Baixa probabilidade de Churn (não renovação)
         - Alta Previsão de LTV
         - Alta propensão de compra
-    - Custo
-        - Baixa taxa de devolução
-    - Experiência de compra
-        - Média alta de avaliação
+- Custo
+	- Baixa taxa de devolução
         
-2)Quantos clientes farão parte do grupo?
-
-    - Número total de clientes em relação ao grupo total
-    
-3)Quais as principais características desses clientes ?
-
-    - Escrever características do cliente:
-        -Idade
-        -Localização
-    - Escrever características dos hábitos de consumo
-         - Atributos de clusterização
-    
-4)Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
-
-    - Comparar o faturamento dos Insiders em relação ao faturamento total
-    - Faturamento do grupo (leva em conta o time que toma conta do grupo)
-    
-5)Qual a expectativa de faturamento desse grupo para os próximos meses ?
-
-    - LTV do grupo de Insiders
-    - Análise de Cohort
-    
-6)Quais as condições para uma pessoa ser elegível ao Insiders ?
-
-    - Definir a periodicidade (quando o modelo vai ser rodado?)
-    - A pessoa precisa ser desimilar ou não-parecido com uma pessoa do grupo
-
-7)Quais as condições para uma pessoa ser removida do Insiders ?
+2)Quais as condições para uma pessoa ser removida do Insiders ?
 
     - Definir a periodicidade (quando o modelo vai ser rodado?)
     - A pessoa precisa ser similar ou parecido com uma pessoa do grupo
     
-8)Qual a garantia que o programa Insiders é melhor que o restante da base ?
 
-    - Teste A/B
-    - Teste A/B Bayesiano
-    - Teste de hipóteses
-
-9)Quais ações o time de marketing pode realizar para aumentar o faturamento?
+3)Quais ações o time de marketing pode realizar para aumentar o faturamento?
 
     - Desconto
     - preferência de compra
@@ -144,58 +111,80 @@ Nessa fase são ajustados os parâmetros que são responsabilidade do cientista 
 # Model training
 Após decidir o número de clusters, devemos testar os modelos de ML para chegar no resultado final
 
+## Machine Learning Model Applied
+	Nomes dos modelos
+	Tem que ter a performance (tabela de cross validation)
+	Sem cross validation está errado
+## Machine Learning Performance
+
 # Inspection
 
 Faz-se necessária a verificação da separação dos clusters. Até 3 dimensões dá pra fazer isso de forma visual, mas no nosso caso temos 5 features. Por isso é necessário utilizar outras ferramentas
 ## UMAP
 
 
-# Convert Model Performace to Business Values
+# Convert Model Performance to Business Values
+
 # Deploy Model to Production
 
-4)Top 3 data insights
-	Mostra os resultados para o negócio
-5) Machine Learning Model Applied
-	Nomes dos modelos
-	Tem que ter a performance (tabela de cross validation)
-	Sem cross validation está errado
-6) Machine Learning Performance
-7) Business Results
-	
-8) Conclusions
+# Data insights
+
+# Business Results
+
+1)Quantos clientes farão parte do grupo?
+
+    - Número total de clientes em relação ao grupo total
+    
+2)Quais as principais características desses clientes ?
+
+    - Escrever características do cliente:
+        -Idade
+        -Localização
+    - Escrever características dos hábitos de consumo
+         - Atributos de clusterização
+    
+3)Qual a porcentagem de contribuição do faturamento, vinda do Insiders ?
+
+    - Comparar o faturamento dos Insiders em relação ao faturamento total
+    - Faturamento do grupo (leva em conta o time que toma conta do grupo)
+    
+4)Qual a expectativa de faturamento desse grupo para os próximos meses ?
+
+    - LTV do grupo de Insiders
+    - Análise de Cohort
+    
+5)Quais as condições para uma pessoa ser elegível ao Insiders ?
+
+    - Definir a periodicidade (quando o modelo vai ser rodado?)
+    - A pessoa precisa ser desimilar ou não-parecido com uma pessoa do grupo
+
+6)Qual a garantia que o programa Insiders é melhor que o restante da base ?
+
+    - Teste A/B
+    - Teste A/B Bayesiano
+    - Teste de hipóteses
+
+# Conclusions
+
 	Resolveu o problema?
 	Alcançou o proposto?
 	Dava pra ter feito mais?
 	Chegou no que esperava?
-9) Lessons learned
-	O que foi bom? O que foi ruim? O que dava pra melhorar?
-10) Next steps
+	
+# Lessons learned
 
-Ideas for my project
- - For each return should there be a invoice. I can exclude both
-quantidade de compras - devolução ou uma relação entre isso pode ser uma feature
- - A simple ranking with the most valuable customers
- - Watch the outliers since the begining
- - Possa pensar na variedade de produtos por compra, para oferecer cross sell
- - Uma coluna de della comparando os clusters com o insiders
+
+	
+# Next steps
+
+Ideias para implementação
+ - Para cada retorno deve haver uma compra: pode-se excluir ambos
+ - Compras/Devolução ou uma relação entre elas pode gerar uma feature
+ - Variedade do carrinho pode ser uma métrica: (cross sell, ofertas...)
  - Menor número de clusters com silhoeta maior do que a sem embedding. Tem que ser melhor, senão pra que todo esse trabalho?
- Qual a influência do formato dos clusters no modelo escolhido? Será que eu posso fazer uma inspeção visual no espaço e chutar qual embedding usar?
- Talvez a quantidade de retornos não seja tão importante, pq muitas vezes o retorno entra como crédito
-
-Foi pego  um erro apenas obsevando o outlier a analise univariada do gross revenue. Existia uma diferença muito grande entre o maior comprador e o 95 percentil
-cagada monstra quando dropamos quantidades duplicadas
-GRAFICOS PROFISSIONAIS PRECISAM SER COMPLETOS
-A saída tem que meio que ser contemplando aquele modelo RFM
-1) Ordenar os clientes por recency dando uma 'nota'
-2) Dividir a base de clientes com base nas notas
-3) Ordenar por frequency
-4)Dividir os clientes conforme a nota 
-A idéia é dar notas nos requisitos mais importantes e depois tirar as médias dessas notas para rankear os clientes
-
+ - Qual a influência do formato dos clusters no modelo escolhido? Será que eu posso fazer uma inspeção visual no espaço e chutar qual embedding usar?
+ 
 A conclusão 'final' foi que da forma como as features foram feitas existem basicamente 3 clusters, mas isso é muito pouco. Precisamos de mais para deixar parecido com o rfm. Agora vem a fase de clusterizar os espaços dos embeddings
-
-
-
 
 # Referências
 [1] Adaptado de : https://www.dreamstime.com/big-data-visualization-concept-infographics-design-cluster-analysis-data-clustering-big-data-visualization-concept-infographics-image189630891
