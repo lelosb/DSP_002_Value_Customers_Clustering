@@ -30,7 +30,7 @@ Quais ações o time de marketing pode realizar para aumentar o faturamento?
 
 ## Data Load
 
-O conjunto de dados está disponível na plataforma do Kaggle². Cada linha do dataset representa uma transação de venda, que ocorreu entre o período de Novembro de 2016 e Dezembro de 2017. O arquivo possui registro de 541909 transações, cada uma com 8 atributos disponíveis como segue:
+O conjunto de dados está disponível na plataforma do Kaggle². Cada linha do dataset representa uma transação de venda, que ocorreu entre o período de Novembro de 2016 e Dezembro de 2017. O arquivo possui registro de *541909* transações, cada uma com 8 atributos disponíveis como segue:
 
 |Feature | Descrição |
 |Invoice Number| identificador único de cada transação.
@@ -75,7 +75,9 @@ Para este projeto, devemos estabelecer algumas condições:
     - visita a empresa
 
 # Data Description
+
 Fase de exporatória de dados. São valores faltantes ou inconsistentes, dados duplicados, outliers, se os tipos dos dados condizem com sua natureza.
+
 # Feature Engineering
 
 Para a aplicação dos modelos de aprendizado de máquina foram derivadas algumas features:
@@ -88,7 +90,7 @@ Para a aplicação dos modelos de aprendizado de máquina foram derivadas alguma
 
 # Data Filtering
 
-Filtragem dos dados que não serão utilizados nos modelos
+Filtragem dos dados que não serão utilizados nos modelos.
 
 # Exploratory Data Analisys
 
@@ -187,5 +189,6 @@ Ideias para implementação
 A conclusão 'final' foi que da forma como as features foram feitas existem basicamente 3 clusters, mas isso é muito pouco. Precisamos de mais para deixar parecido com o rfm. Agora vem a fase de clusterizar os espaços dos embeddings
 
 # Referências
-[1] Adaptado de : https://www.dreamstime.com/big-data-visualization-concept-infographics-design-cluster-analysis-data-clustering-big-data-visualization-concept-infographics-image189630891
+[1] https://www.dreamstime.com/big-data-visualization-concept-infographics-design-cluster-analysis-data-clustering-big-data-visualization-concept-infographics-image189630891 (Adaptado)
+
 [2] https://www.kaggle.com/vik2012kvs/high-value-customers-identification 
