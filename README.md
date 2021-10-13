@@ -102,23 +102,40 @@ Normalização e reescala dos dados
 Features que serão utilizadas na modelagem
 # Hyperparameter Fine Tunning
 
-Nessa fase são ajustados os parâmetros que são responsabilidade do cientista de dados. Nosso principal Hiperparâmetro neste projeto é o número de clusters, o qual não temos a resposta de início. Foi aplicado o K-Means em um range de 2 a 10 clusters e foram utilizadas duas métricas para chegar ao melhor valor, o WSS e o Silhouette Score.
+Nessa fase são ajustados os parâmetros que são responsabilidade do cientista de dados. Nosso principal Hiperparâmetro neste projeto é o número de clusters, o qual não temos a resposta de início. Foi aplicado o K-Means em um range de 2 a 7 clusters e foram utilizadas duas métricas para chegar ao melhor valor, o WSS e o Silhouette Score.
+
 
 ## WSS (Within-Cluster Sum of Square)
 
  As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. A WSS mede apenas a compactação, ou seja, mede apenas a distância entre os pontos dentro de um cluster. Por isso não pode ser utilizado sozinho. Já a Silhoueta mede a separação dos clusters
+ 
+ ![](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/wss_cluster_metrics.png)
+ 
+ ## SS (Silhouette Score)
+ 
  Calcula as distâncias entre todos os pontos dentro de um mesmo cluster e tira a média (lembrando que o KMeans já separou os clusters).    Isso mede a compactação, depois mede a distância média entre os pontos de um cluster e ou outros clusters
  Cada ponto vai ter um score de silhoueta, que varia de -1 a 1 e diz o quanto o ponto pertence ao seu cluster ou o quanto deveria fazer parte de outro. Quanto mais perto do 1, melhor. Cada cor no gráfico mostra a distribuição da silhoueta de todos os pontos de um cluster
+
+Análise de Silhoueta para um range de cluster (2 a 7)
+
+![](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/silhouette_cluster_analysis.png)
+
+Resultado da SS apontando que o melhor valor seria de 2 clusters:
+
+![](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/silhouette_cluster_metrics.png)
+
 
 # Model training
 Após decidir o número de clusters, devemos testar os modelos de ML para chegar no resultado final
 
 ## Machine Learning Model Applied
 	Nomes dos modelos
+	K-means
 	Tem que ter a performance (tabela de cross validation)
 	Sem cross validation está errado
 ## Machine Learning Performance
-
+UMAP após clusterização pelo Kmeans (4 clusters)
+![](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/umap_vizbathrooms.png)
 # Inspection
 
 Faz-se necessária a verificação da separação dos clusters. Até 3 dimensões dá pra fazer isso de forma visual, mas no nosso caso temos 5 features. Por isso é necessário utilizar outras ferramentas
