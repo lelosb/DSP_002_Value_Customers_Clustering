@@ -107,9 +107,12 @@ Nessa fase são ajustados os parâmetros que são responsabilidade do cientista 
 
 ## WSS (Within-Cluster Sum of Square)
 
- As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. A WSS mede apenas a compactação, ou seja, mede apenas a distância entre os pontos dentro de um cluster. Por isso não pode ser utilizado sozinho. Já a Silhoueta mede a separação dos clusters
+ As principais métricas de clusters são a compactação dentro de cada cluster e a distância entre os clusters. Utilizando a biblioteca yellowbricks obtemos o número ótimo de clusters para o nosso projeto.
+ O WSS soma as distâncias inter cluster. Quanto menor essa soma, mais compactos estão os clusters. Entretanto, por não levar em consideração a distância entre os clusters não é uma métrica que deve ser utilizada sozinha (nesse caso utilizamos em conjunto com a Análise de Silhoueta). 
  
  ![](https://github.com/lelosb/DSP_002_Value_Customers_Clustering/blob/main/reports/figures/wss_cluster_metrics.png)
+ 
+ O número de clusters a ser escolhido é o que possui a maior variação entre os valores de distância inter cluster. É necessário fazer um balanço entre o número de clusters e a menor distância possível. Um número maior de clusters pode não ser interessante, pois uma distancia menor intercluster não leva em conta a compactação
  
  ## SS (Silhouette Score)
  
